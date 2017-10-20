@@ -1,0 +1,23 @@
+/**
+	*对象属性名字可以是任意字符串，包括空串。如果对象属性名字不是合法的javascript标识符，它必须用""包裹。属性的名字不合法，那么便不能用.访问属性值，而是通过类数组标记("[]")访问和赋值
+	*
+	*/
+	console.log("-------对象字面量------------");
+	var car = {manyCars:{a:"Saab",b:"Jeep"},7:"Mazda","10":"BMW"};
+	console.log(car.manyCars.a); //Saab
+	console.log(car["manyCars"]["a"]); //Saab
+	//console.log(car.7); //Uncaught SyntaxError: missing ) after argument list
+	// console.log(car.10); //Uncaught SyntaxError: missing ) after argument list
+	console.log(car[7]); //Mazda
+	console.log(car[10]); //BMW
+
+
+	var unusualPropertyNames = {
+  		"": "An empty string",
+  		"!": "Bang!",
+  		"!": "John"
+	}
+	// console.log(unusualPropertyNames."");   // Unexpected string
+	console.log(unusualPropertyNames[""]);  // An empty string
+	// console.log(unusualPropertyNames.!);    // Unexpected token !
+	console.log(unusualPropertyNames["!"]); // Bang!
